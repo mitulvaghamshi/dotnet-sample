@@ -8,7 +8,7 @@
 | 4    | [Model View Controller](./pages/4.md)             | [Introduction to MVC (part 2)](./walkthrough/3.md) - [(PDF)](./printable/w3.pdf) <br> [MVC Application (part 1)](./walkthrough/4.md) - [(PDF)](./printable/w4.pdf) |  [Intro MVC (part 1, 2)](./examples/IntroMVC/) <br> [Movie Tracker (part 1)](./examples/MovieTracker-p1/)
 | 5    | [Introduction to ORM](./pages/5.md)               | [Entity Framework Introduction (part 2)](./walkthrough/5.md) - [(PDF)](./printable/w5.pdf)                        | [MovieTracker (part 2)](./examples/MovieTracker-p2/)
 | 6    | [Status Code Pages](./pages/6.md)                 | [Error Handling (part 3)](./walkthrough/6.md) - [(PDF)](./printable/w6.pdf)                                       | [MovieTracker (part 3)](./examples/MovieTracker-p3/)
-| 7    | [Introduction to Testing](./pages/7.md)           | [Testing (part 4)](./walkthrough/7.md) - [(PDF)](./printable/w7.pdf)                                             |
+| 7    | [Introduction to Testing](./pages/7.md)           | [xUnit Testing (part 4)](./walkthrough/7.md) - [(PDF)](./printable/w7.pdf)                                             | [MovieTracker (part 4)](./examples/MovieTracker-p4/)
 | 8    | [Database Migrations](./pages/8.md)               | [EF Core Database Migrations](./walkthrough/8.md) - [(PDF)](./printable/w8.pdf)                          |
 | 9    | [Scaffolding](./pages/9.md)                       | [EF Core Database Scaffolding, Sorting and Searching](./walkthrough/9.md)  [(PDF)](./printable/w9.pdf) |
 | 10   | [Pagingination](./pages/10.md)                    | [MVC Paging](./walkthrough/10.md) - [(PDF)](./printable/w10.pdf) <br> [MVC Filtering](./walkthrough/11.md) - [(PDF)](./printable/w11.pdf) |
