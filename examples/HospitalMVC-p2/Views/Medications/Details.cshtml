@@ -1,0 +1,59 @@
+﻿@model HospitalMVC.Models.Medication
+
+@{
+	ViewData["Title"] = "Medication Details";
+}
+
+<h1>Details - @Model.MedicationDescription</h1>
+<hr />
+
+<div>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.MedicationDescription)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.MedicationDescription)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.MedicationCost)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.MedicationCost)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PackageSize)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PackageSize)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Strength)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Strength)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Sig)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Sig)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.UnitsUsedYtd)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UnitsUsedYtd)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.LastPrescribedDate)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.LastPrescribedDate)
+		</dd>
+	</dl>
+</div>
+<div>
+	<a asp-action="Edit" asp-route-id="@Model?.MedicationId" class="btn btn-outline-success">Edit</a>
+	<a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+</div>
