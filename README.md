@@ -12,7 +12,7 @@
 | 8    | [Database Migrations](./pages/8.md)               | [EF Core Database Migrations (part 5)](./walkthrough/8.md) - [(PDF)](./printable/w8.pdf) | [9. MovieTracker (part 5)](./examples/MovieTracker-p5/) |
 | 9    | [Scaffolding, Searching and Sorting](./pages/9.md)| [Scaffolding, Sorting and Searching (part 1)](./walkthrough/9.md) [(PDF)](./printable/w9.pdf) | [10. Hospital MVC (part 1)](./examples/HospitalMVC-p1/) |
 | 10   | [Pagingination](./pages/10.md)                    | [MVC Paging (part 2)](./walkthrough/10.md) - [(PDF)](./printable/w10.pdf) <br> [MVC Filtering (part 3)](./walkthrough/11.md) - [(PDF)](./printable/w11.pdf) | [11. Hospital MVC (part 2)](./examples/HospitalMVC-p2/) <br> [12. Hospital MVC (part 3)](./examples/HospitalMVC-p3/) |
-| 11   | [Web API](./pages/11.md)                          | [Introduction to Web API](./walkthrough/12.md) - [(PDF)](./printable/w12.pdf) |
+| 11   | [Web API](./pages/11.md)                          | [Introduction to Web API](./walkthrough/12.md) - [(PDF)](./printable/w12.pdf) | [13. Medication API](./examples/MedicationAPI/) |
 | 12   | [Making a Web Service Call](./pages/12.md)        | [Using a RESTful Web Service](./walkthrough/13.md) - [(PDF)](./printable/w13.pdf) <br> [Fully Implementing a REST API](./walkthrough/14.md) - [(PDF)](./printable/w14.pdf) |
 | 13   | [Authentication vs. Authorization](./pages/13.md) | [Authentication and Authorization](./walkthrough/15.md) - [(PDF)](./printable/w15.pdf) |
 | 14   | [Customizing the User](./pages/14.md)             | [Identity Customization and Role-Based Authorization](./walkthrough/16.md) - [(PDF)](./printable/w16.pdf) |
