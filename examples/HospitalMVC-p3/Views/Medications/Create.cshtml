@@ -1,0 +1,66 @@
+﻿@model HospitalMVC.Models.Medication
+
+@{
+	ViewData["Title"] = "Create Medication";
+}
+
+<h1>Create Medication</h1>
+<hr />
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group visually-hidden">
+				<label asp-for="MedicationId" class="control-label"></label>
+				<input asp-for="MedicationId" class="form-control" />
+				<span asp-validation-for="MedicationId" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="MedicationDescription" class="control-label"></label>
+				<input asp-for="MedicationDescription" class="form-control" autofocus />
+				<span asp-validation-for="MedicationDescription" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="MedicationCost" class="control-label"></label>
+				<input asp-for="MedicationCost" class="form-control" />
+				<span asp-validation-for="MedicationCost" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PackageSize" class="control-label"></label>
+				<input asp-for="PackageSize" class="form-control" />
+				<span asp-validation-for="PackageSize" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Strength" class="control-label"></label>
+				<input asp-for="Strength" class="form-control" />
+				<span asp-validation-for="Strength" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Sig" class="control-label"></label>
+				<input asp-for="Sig" class="form-control" />
+				<span asp-validation-for="Sig" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UnitsUsedYtd" class="control-label"></label>
+				<input asp-for="UnitsUsedYtd" class="form-control" />
+				<span asp-validation-for="UnitsUsedYtd" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="LastPrescribedDate" class="control-label"></label>
+				<input asp-for="LastPrescribedDate" class="form-control" />
+				<span asp-validation-for="LastPrescribedDate" class="text-danger"></span>
+			</div>
+			<div class="form-group my-3">
+				<input type="submit" value="Create" class="btn btn-success" />
+				<a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
