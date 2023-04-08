@@ -16,7 +16,7 @@
 | 12   | [Making a Web Service Call](./pages/12.md)        | [Using a RESTful Web Service](./walkthrough/13.md) - [(PDF)](./printable/w13.pdf) <br> [Fully Implementing a REST API](./walkthrough/14.md) - [(PDF)](./printable/w14.pdf) | [14. BlogPost (front-end)](./examples/BlogPost/) <br> [15. PhysicianAPI+Doctors (full-stack)](./examples/WebAPIFullStack/) |
 | 13   | [Authentication and Authorization](./pages/13.md) | [Authentication and Authorization](./walkthrough/15.md) - [(PDF)](./printable/w15.pdf) | [16. SecureSite (part 1)](./examples/SecureSite-p1/) |
 | 14   | [Role based Authentication](./pages/14.md)        | [Identity Customization and Role-Based Authorization](./walkthrough/16.md) - [(PDF)](./printable/w16.pdf) | [17. SecureSite (part 2)](./examples/SecureSite-p2/) |
-| 15   | [Razor Pages](./pages/15.md)                      | [Razor Pages Introduction](./walkthrough/17.md) - [(PDF)](./printable/w17.pdf) <br> [Razor Pages with EF Core](./walkthrough/18.md) - [(PDF)](./printable/w18.pdf) |
+| 15   | [Razor Pages](./pages/15.md)                      | [Razor Pages Introduction](./walkthrough/17.md) - [(PDF)](./printable/w17.pdf) <br> [Razor Pages with EF Core](./walkthrough/18.md) - [(PDF)](./printable/w18.pdf) | [18. RazorIntro](./examples/RazorIntro/) <br> |
 | 16   | [What is Blazor](./pages/16.md)                   | [Blazor Server Introduction](./walkthrough/19.md) - [(PDF)](./printable/w19.pdf) |
 | 17   | [Blazor Wasm Project Structure](./pages/17.md)    | [Blazor WebAssembly Introduction](./walkthrough/20.md) - [(PDF)](./printable/w20.pdf) <br> [Blazor WebAssembly with EF Core](./walkthrough/21.md) - [(PDF)](./printable/w21.pdf) |
 | 18   | [EditForm](./pages/18.md)                         | | |
