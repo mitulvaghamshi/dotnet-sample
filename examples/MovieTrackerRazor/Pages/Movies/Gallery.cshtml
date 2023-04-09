@@ -1,0 +1,37 @@
+﻿@page "{SearchTerm?}/{MovieGenre?}"
+@model GalleryModel
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h1>@ViewBag.TItle</h1>
+
+<div class="row my-3 align-items-center">
+    <div class="col-md-4">
+        <a asp-page="Create" class="btn btn-outline-light">Create New</a>
+    </div>
+    <div class="col-md-8">
+        <form id="filterForm" method="get" class="row">
+            <div class="form-floating col-sm-6">
+                <input asp-for="SearchTerm" class="form-control" autocomplete="search" palaceholder="Search movies..." />
+                <label asp-for="SearchTerm" class="form-label">Search movies</label>
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownListFor(model => model.MovieGenre, Model.Genres, "All Genre", new { @class="form-select py-3", onchange = "submit()" })
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var movie in Model.Movie)
+    {
+        <a asp-page="./Details" asp-route-id="@movie.Id" class="text-decoration-none h-100 col-sm-12 col-md-6 col-lg-3 col-xl-2">
+            <div class="card rounded-4">
+                <img src="~/img/@movie.ImageFile" class="card-img-top" />
+                <h6 class="fw-bold card-body text-center text-nowrap overflow-hidden">@movie.Title</h6>
+            </div>
+        </a>
+    }
+</div>
