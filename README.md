@@ -26,5 +26,6 @@
 | 15   | [Razor Pages](./pages/15.md)                      | [Razor Pages Introduction](./walkthrough/17.md) - [(PDF)](./printable/w17.pdf) <br> [Razor Pages with EF Core](./walkthrough/18.md) - [(PDF)](./printable/w18.pdf) | [18. RazorIntro](./examples/RazorIntro/) <br> [19. MovieTrackerRazor](./examples/MovieTrackerRazor/) |
 |      | __Blazor__                                        |
 | 16   | [What is Blazor](./pages/16.md)                   | [Blazor Server Introduction](./walkthrough/19.md) - [(PDF)](./printable/w19.pdf) | [20. BlazorServerIntro](./examples/BlazorServerIntro/)
-| 17   | [Blazor Wasm Project Structure](./pages/17.md)    | [Blazor WebAssembly Introduction](./walkthrough/20.md) - [(PDF)](./printable/w20.pdf) <br> [Blazor WebAssembly with EF Core](./walkthrough/21.md) - [(PDF)](./printable/w21.pdf) |
-| 18   | [EditForm](./pages/18.md)                         |
+|      | __Blazor Wasm__                                   |
+| 17   | [Blazor Wasm Project Structure](./pages/17.md)    | [Blazor WebAssembly Introduction](./walkthrough/20.md) - [(PDF)](./printable/w20.pdf) | [21. BlazorWasmIntro](./examples/BlazorWasmIntro/) <br> [22. BlazorWasmServer](./examples/BlazorWasmServer/) <br> [23. BlazorWasmPWA](./examples/BlazorWasmPWA/) |
+| 18   | [Blazor Wasm EF Core EditForm](./pages/18.md)     | [Blazor WebAssembly with EF Core](./walkthrough/21.md) - [(PDF)](./printable/w21.pdf) |  |

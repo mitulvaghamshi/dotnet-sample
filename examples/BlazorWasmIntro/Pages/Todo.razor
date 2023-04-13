@@ -1,0 +1,83 @@
+﻿@page "/todoapp"
+
+<h1 class="fw-bold">Todo (@todos.Count(todo => !todo.IsDone))</h1>
+
+<hr />
+
+<div class="row align-items-center my-3 form">
+    <div class="col-sm-12 col-md-8 col-lg-10 py-2">
+        <div class="form-floating">
+            <input class="form-control" autofocus @bind="InputValue" />
+            <label class="form-label">Enter what to do...?</label>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-2 py-2">
+        <button class="btn btn-lg btn-primary w-100" @onclick="OnSubmit">Add</button>
+    </div>
+</div>
+
+@if (ShowBanner)
+{
+    <Alert Title="Hmmm, cannot add an empty todo..." OiIcon="oi-ban" AlertBg="alert-danger" OnClose="() => ShowBanner = false" />
+}
+
+@if (todos.Count == 0)
+{
+    <Alert Title="Nothing to do." OiIcon="oi-pencil" AlertBg="alert-secondary" Description="Try adding some todos..." />
+}
+else
+{
+    <table class="table table-borderless">
+        <thead>
+            <tr class="row">
+                <th class="col-1">Completed</th>
+                <th class="col-10">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var todo in todos)
+            {
+                <tr class="row">
+                    <td class="col-1 text-center">
+                        <input class="form-check-input p-3" type="checkbox" @bind="todo.IsDone" />
+                    </td>
+                    <td class="col-10">
+                        <input class="form-control" @bind="todo.Title" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<TodoItem> todos = new();
+
+    private string? InputValue { get; set; }
+
+    private bool InputIsDone { get; set; } = false;
+
+    private bool ShowBanner { get; set; } = false;
+
+    protected override async Task OnInitializedAsync() =>
+        await Task.Run(() => todos.AddRange(Enumerable.Range(1, 5).Select(index =>
+            new TodoItem { Id = index, Title = $"Sample Todo {index}", IsDone = index % 5 == 0 })
+                .ToList()));
+
+    private void OnSubmit()
+    {
+        if (ShowBanner = string.IsNullOrWhiteSpace(InputValue)) return;
+
+        todos.Add(new TodoItem { Id = (todos.LastOrDefault()?.Id ?? 0) + 1, Title = InputValue, IsDone = InputIsDone });
+        InputValue = string.Empty;
+    }
+
+    private class TodoItem
+    {
+        public int Id { get; set; }
+
+        public string? Title { get; set; }
+
+        public bool IsDone { get; set; }
+    }
+}
