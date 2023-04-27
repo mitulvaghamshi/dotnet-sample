@@ -10,6 +10,10 @@ are written in 2021.
   combined into `Program.cs`.
 - Project usage new implicite globals, means the `Program.cs` file does not
   contain any `class` or `Main` method definition, as per new style.
-- All example were removed `bootstrap lib`s which you can download
-  [here](../resources/bootstrap-lib.zip) and place inside `wwwroot/` folder
-  (e.g. `wwwroot/lib/`).
+- All example were removed `Bootstrap and jQuery lib`s which you can download
+  [Bootstrap with jQuery (non-blazor apps)](../resources/bootstrap-jquery.zip) and
+  place inside `wwwroot/` folder (e.g. `wwwroot/lib/`) or...
+- If working with Blazor apps, download
+  [Bootstrap with Open-Iconic (blazor apps)](../resources/bootstrap-iconic.zip)
+  and place inside `wwwroot/css/` folder (e.g. `wwwroot/css/bootsrap`
+  and `wwwroot/css/open-iconic`).
