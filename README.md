@@ -29,4 +29,10 @@
 |    | **Blazor Wasm**                                    |                                                                                                              |                                                                                                                                                                  |
 | 17 | [Blazor Wasm Project Structure](./pages/17.md)     | [Blazor WebAssembly Introduction](./walkthrough/20.md)                                                       | [21. BlazorWasmIntro](./examples/BlazorWasmIntro/) <br> [22. BlazorWasmServer](./examples/BlazorWasmServer/) <br> [23. BlazorWasmPWA](./examples/BlazorWasmPWA/) |
 | 18 | [Blazor EditForm component](./pages/18.md)         | [Blazor WebAssembly with EF Core](./walkthrough/21.md)                                                       | [24. MovieTrackerBlazor](./examples/MovieTrackerBlazor/)                                                                                                         |
-|    | Extra Examples                                     | [CarRentals](./examples/CarRentals/) <br> [Colors](./examples/Colors/) <br> [BabyNames](./examples/BabyNames/) |                                                                                                                                                                |
+
+| No  | Extra Examples                        |
+| --- | ------------------------------------- |
+|  1  | [CarRentals](./examples/CarRentals/)  |
+|  3  | [BabyNames](./examples/BabyNames/)    |
+|  4  | [Recipes](./examples/Recipes/)        |
+|  2  | [Colors](./examples/Colors/)          |
