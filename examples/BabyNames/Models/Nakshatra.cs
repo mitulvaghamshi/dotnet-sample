@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BabyNames.Models;
 
-[Table("Religions")]
-public partial class Religion
+[Table("Nakshatras")]
+public partial class Nakshatra
 {
     [Key]
     public int Id { get; set; }
 
-    [Required, StringLength(20)]
+    [Required, StringLength(20)] 
     public string Name { get; set; } = string.Empty;
 
-    [InverseProperty("Religion")]
+    [InverseProperty("Nakshatra")]
     public virtual ICollection<Baby> Babies { get; set; } = new List<Baby>();
 }
