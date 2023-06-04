@@ -354,9 +354,3 @@ MigrationBackup/
 
 *.db-shm
 *.db-wal
-
-# Bootstrap & jQuery libs
-
-**/wwwroot/lib/
-**/wwwroot/css/bootstrap/
-**/wwwroot/css/open-iconic/
