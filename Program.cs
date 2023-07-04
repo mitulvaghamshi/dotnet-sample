@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<RecipeContext>();
+builder.Services.AddDbContext<BabyContext>();
 builder.Services.AddDbContext<ColorContext>();
 builder.Services.AddDbContext<CarContext>();
 

@@ -1,0 +1,78 @@
+﻿@model DatabaseExplorer.Models.BabyNames.Baby
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create new Baby Name</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meaning" class="control-label"></label>
+                <input asp-for="Meaning" class="form-control" />
+                <span asp-validation-for="Meaning" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numerology" class="control-label"></label>
+                <input asp-for="Numerology" class="form-control" />
+                <span asp-validation-for="Numerology" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-for="Gender" class="form-control">
+                    <option selected disabled>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Syllables" class="control-label"></label>
+                <input asp-for="Syllables" class="form-control" />
+                <span asp-validation-for="Syllables" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NakshatraId" class="control-label"></label>
+                <select asp-for="NakshatraId" class="form-control" asp-items="ViewBag.NakshatraId">
+                    <option selected disabled>Select Nakshatra</option>
+                    <option value="-1">Unknown/Not Applicable</option>
+                </select>
+                <span asp-validation-for="NakshatraId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReligionId" class="control-label"></label>
+                <select asp-for="ReligionId" class="form-control" asp-items="ViewBag.ReligionId">
+                    <option selected disabled>Select Religion</option>
+                </select>
+                <span asp-validation-for="ReligionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZodiacId" class="control-label"></label>
+                <select asp-for="ZodiacId" class="form-control" asp-items="ViewBag.ZodiacId">
+                    <option selected disabled>Select Zodiac</option>
+                </select>
+                <span asp-validation-for="ZodiacId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-success me-2" />
+                <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+}
