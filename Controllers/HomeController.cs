@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Recipes.Models;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using DatabaseExplorer.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Recipes.Controllers;
+namespace DatabaseExplorer.Controllers;
 
 public class HomeController : Controller
 {
