@@ -1,0 +1,67 @@
+@model IEnumerable<DatabaseExplorer.Models.CarRentals.Car>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Cars</h1>
+
+<p class="my-3">
+    <a asp-action="Create" class="btn btn-outline-light">Create New</a>
+</p>
+
+<table class="table table-bordred">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kilometers)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kilometers)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

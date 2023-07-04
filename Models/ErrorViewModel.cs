@@ -1,4 +1,4 @@
-namespace Recipes.Models;
+namespace DatabaseExplorer.Models;
 
 public class ErrorViewModel
 {
