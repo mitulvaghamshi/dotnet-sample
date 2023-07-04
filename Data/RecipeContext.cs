@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Recipes.Models;
+﻿using DatabaseExplorer.Models.RecipeMaker;
+using Microsoft.EntityFrameworkCore;
 
-namespace Recipes.Data;
+namespace DatabaseExplorer.Data;
 
 public partial class RecipeContext : DbContext
 {
@@ -11,5 +11,5 @@ public partial class RecipeContext : DbContext
 
     public virtual DbSet<Recipe> Recipe { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite("name=RecipeContext");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite("name=RecipeMaker");
 }
