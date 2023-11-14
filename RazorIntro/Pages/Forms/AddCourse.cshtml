@@ -1,0 +1,35 @@
+﻿@page
+@model AddCourseModel
+@{
+    ViewBag.Title = "Add Course";
+}
+
+<h3 class="fw-bold">@ViewBag.Title</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="addCourseForm" method="post">
+            <h3>Create a new course.</h3>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Course.CourseCode" class="form-control" autocomplete="coursecode" aria-required="true" placeholder="CO10101" />
+                <label asp-for="Course.CourseCode"></label>
+                <span asp-validation-for="Course.CourseCode" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Course.CourseName" class="form-control" autocomplete="coursename" aria-required="true" placeholder="Rust" />
+                <label asp-for="Course.CourseName"></label>
+                <span asp-validation-for="Course.CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Course.Hours" class="form-control" autocomplete="hours" aria-required="false" placeholder="5" />
+                <label asp-for="Course.Hours"></label>
+                <span asp-validation-for="Course.Hours" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 fw-bold btn btn-outline-primary">Add Course</button>
+        </form>
+    </div>
+</div>

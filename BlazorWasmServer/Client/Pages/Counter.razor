@@ -1,0 +1,14 @@
+﻿@page "/counter"
+
+<PageTitle>Blazor Counter</PageTitle>
+
+<p class="fw-bold display-6">You have pressed the button <span>@counter</span> time<span>@(counter == 1 ? "" : "s")</span>.</p>
+
+<button class="btn btn-outline-primary" @onclick="() => counter += 1">
+    <span class="oi oi-plus me-2" aria-hidden="true"></span>
+    <strong>Increment Counter</strong>
+</button>
+
+@code {
+    private int counter = 0;
+}

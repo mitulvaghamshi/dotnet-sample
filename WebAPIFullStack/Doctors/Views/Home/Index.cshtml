@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Doctors.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctors";
+    var actionBtnClass = "btn fw-bold py-1 px-2";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p class="my-3">
+    <a asp-action="Create" class="btn btn-outline-light">Create New</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OhipRegistration)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OhipRegistration)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.PhysicianId }, new { @class = actionBtnClass })
+                    @Html.ActionLink("Details", "Details", new { id=item.PhysicianId }, new { @class = actionBtnClass })
+                    @Html.ActionLink("Delete", "Delete", new { id=item.PhysicianId }, new { @class = actionBtnClass })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
