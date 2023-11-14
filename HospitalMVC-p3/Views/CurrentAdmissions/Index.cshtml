@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HospitalMVC.Models.Admission>
+
+@{
+    var actionBtnClass = "btn fw-bold px-2 py-1";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p class="my-3">
+    <a asp-action="Create" class="btn btn-outline-light">Create New</a>
+</p>
+
+<form asp-action="Index" method="get" class="my-2">
+    <p class="row">
+        <p class="h4 d-inline">Nursing Unit Manager: </p> 
+        @Html.DropDownList("nursingUnitId", (IEnumerable<SelectListItem>)ViewBag.NursingUnitId, "All Current Addmissions", new { onchange = "submit()" })
+    </p>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="text-center">
+            <th class="text-start">Patient</th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimaryDiagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryDiagnoses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bed)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.LastName),
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryDiagnosis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondaryDiagnoses)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Bed)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientId, admissionDate = item.AdmissionDate }, new { @class = @actionBtnClass })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientId, admissionDate = item.AdmissionDate }, new { @class = @actionBtnClass })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientId, admissionDate = item.AdmissionDate }, new { @class = @actionBtnClass })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

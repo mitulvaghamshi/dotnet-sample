@@ -1,0 +1,40 @@
+﻿@page "/edit/{Id:int?}"
+
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<PageTitle>Edit Movie</PageTitle>
+
+<h1 class="fw-bold">Edit Movie</h1>
+<hr />
+
+@if (Id == null)
+{
+    <Alert Title="Movie not found!" Description="looks like you forget to specify the movie id." AlertBg="alert-danger" OiIcon="oi-circle-x" />
+
+    <a href="/" class="btn btn-outline-light mt-3"><span class="oi oi-home" /> Back to List</a>
+}
+else
+{
+    <MovieForm ButtonText="Save" movie="movie" OnSubmit="EditAsync" />
+}
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    private Movie movie = new();
+
+    private async Task EditAsync()
+    {
+        if (Id != movie.Id) return;
+        await Http.PutAsJsonAsync($"movies/{movie.Id}", movie);
+        NavManager.NavigateTo("/");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id == null) return;
+        movie = await Http.GetFromJsonAsync<Movie>($"movies/{Id}") ?? new();
+    }
+}

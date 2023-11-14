@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MovieTracker.Models.Movie>
+
+@{
+	ViewData["Title"] = "Movies";
+}
+
+<h1>Movies</h1>
+
+<p class="my-2">
+	<a asp-action="Create" class="btn btn-dark">Create New</a>
+</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Title)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DateSeen)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Genre)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Rating)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ReleaseYear)
+			</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Title)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateSeen)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Genre!.GenreDescription)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Rating)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ReleaseYear)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-dark py-1 px-2">Edit</a>
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning py-1 px-2">Details</a>
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger py-1 px-2">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

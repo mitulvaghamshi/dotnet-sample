@@ -1,0 +1,75 @@
+﻿@page "{SearchTerm?}/{MovieGenre?}"
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h1>@ViewBag.TItle</h1>
+
+<div class="row my-3 align-items-center">
+    <div class="col-md-4">
+        <a asp-page="Create" class="btn btn-outline-light">Create New</a>
+    </div>
+    <div class="col-md-8">
+        <form id="filterForm" method="get" class="row">
+            <div class="form-floating col-sm-6">
+                <input asp-for="SearchTerm" class="form-control" autocomplete="search" palaceholder="Search movies..." />
+                <label asp-for="SearchTerm" class="form-label">Search movies</label>
+            </div>
+            <div class="col-sm-6">
+                @Html.DropDownListFor(model => model.MovieGenre, Model.Genres, "All Genre", new { @class="form-select py-3", onchange = "submit()" })
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].DateSeen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].ImageFile)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movie)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateSeen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageFile)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
