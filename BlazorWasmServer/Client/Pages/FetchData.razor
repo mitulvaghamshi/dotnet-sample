@@ -1,0 +1,60 @@
+﻿@page "/fetchdata"
+@using BlazorWasmServer.Shared
+@inject HttpClient Http
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<div class="row align-items-center my-3">
+    <div class="col-6">
+        <div class="form-floating">
+            <input class="form-control" type="number" @bind="Limit" />
+            <label class="form-label">Enter number of days (default 5)</label>
+        </div>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-primary" @onclick="GetForecasts">Get Forecasts</button>
+    </div>
+</div>
+
+@if (forecasts == null)
+{
+    <Alert Title="Nothing to show..." OiIcon="oi-info" Description="Enter number of days and click Get Forecasts." />
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fc in forecasts)
+            {
+                <tr>
+                    <td>@fc.Date.ToShortDateString()</td>
+                    <td>@fc.TemperatureC</td>
+                    <td>@fc.TemperatureF</td>
+                    <td>@fc.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    private int Limit { get; set; } = 5;
+
+    private async Task GetForecasts()
+    {
+        if (Limit <= 0) Limit = 5;
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>($"WeatherForecast/?limit={Limit}");
+    }
+}

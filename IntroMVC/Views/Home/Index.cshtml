@@ -1,0 +1,52 @@
+﻿@model IntroMVC.Models.Person
+@{
+	Layout = "_Layout";
+}
+
+<div class="text-center">
+	<h1 class="display-4 font-weight-bold">Welcome to MVC</h1>
+</div>
+
+<h2>User info:</h2>
+
+<div class="table">
+	@{
+		var clazz = "col-3 h5 btn-primary rounded m-1 p-2";
+	}
+	<div class="row">
+		<section class="@clazz">User ID:</section>
+		<section class="@clazz">@Model.Id</section>
+	</div>    
+	<div class="row">
+		<section class="@clazz">Full Name:</section>
+		<section class="@clazz">@Model.Name</section>
+	</div>   
+	<div class="row">
+		<section class="@clazz">About:</section>
+		<section class="@clazz">@Model.About</section>
+	</div>    
+	<div class="row">
+		<section class="@clazz">Phone:</section>
+		<section class="@clazz">@Model.Phone</section>
+	</div>    
+	<div class="row">
+		<section class="@clazz">Address:</section>
+		<section class="@clazz">@Model.Address</section>
+	</div>    
+	<div class="row">
+		<section class="@clazz">City:</section>
+		<section class="@clazz">@Model.City</section>
+	</div>
+	<div class="row">
+		<section class="@clazz">Region:</section>
+		<section class="@clazz">@Model.Region</section>
+	</div>
+	<div class="row">
+		<section class="@clazz">Postal Code:</section>
+		<section class="@clazz">@Model.PostalCode</section>
+	</div>
+	<div class="row">
+		<section class="@clazz">Country:</section>
+		<section class="@clazz">@Model.Country</section>
+	</div>
+</div>

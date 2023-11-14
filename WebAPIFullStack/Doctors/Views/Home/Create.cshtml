@@ -1,0 +1,56 @@
+﻿@model Doctors.Models.Doctor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3>Add New Doctor</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="PhysicianId" class="control-label"></label>
+                <input asp-for="PhysicianId" class="form-control" />
+                <span asp-validation-for="PhysicianId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" autofocus />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialty" class="control-label"></label>
+                <input asp-for="Specialty" class="form-control" />
+                <span asp-validation-for="Specialty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OhipRegistration" class="control-label"></label>
+                <input asp-for="OhipRegistration" class="form-control" />
+                <span asp-validation-for="OhipRegistration" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-success me-2" />
+                <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

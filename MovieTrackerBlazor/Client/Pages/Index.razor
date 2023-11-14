@@ -1,0 +1,70 @@
+﻿@page "/"
+
+@inject HttpClient Http
+@inject IJSRuntime Jsr
+
+<h1 class="fw-bold">Movie Tracker</h1>
+<hr />
+
+<div class="my-3">
+    <a href="/add" class="btn btn-outline-light"><span class="oi oi-plus" /> Create Movie</a>
+</div>
+
+@if (movies == null)
+{
+    <Alert OiIcon="oi-info" Title="Loading..." AlertBg="alert-success" />
+}
+else if (movies.Count == 0)
+{
+    <Alert OiIcon="oi-circle-x" Title="No movies available" Description="Try creating new movie..." />
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date Seen</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in movies)
+            {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td>@movie.DateSeen?.ToShortDateString()</td>
+                    <td>@movie.Genre?.GenreDescriptios</td>
+                    <td>@movie.Rating</td>
+                    <td>
+                        <a href="/edit/@movie.Id" class="text-decoration-none fw-bold py-1"><span class="oi oi-pencil" /> Edit</a> | 
+                        <a href="javascript:void 0;" @onclick="() => DeleteAsync(movie.Id)" class="text-decoration-none fw-bold text-danger py-1"><span class="oi oi-trash" /> Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Movie>? movies;
+
+    private async Task DeleteAsync(int id)
+    {
+        var movie = movies?.First(m => m.Id == id);
+        if (movie == null) return;
+
+        if (await Jsr.InvokeAsync<bool>("confirm", $"Are you sure want to delete {movie.Title}?"))
+        {
+            await Http.DeleteAsync($"movies/{id}");
+            await OnInitializedAsync();
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        movies = await Http.GetFromJsonAsync<List<Movie>>("movies");
+    }
+}

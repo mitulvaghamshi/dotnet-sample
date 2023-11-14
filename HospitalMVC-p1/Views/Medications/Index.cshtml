@@ -1,0 +1,87 @@
+﻿@model IEnumerable<HospitalMVC.Models.Medication>
+
+@{
+	ViewData["Title"] = "Medications";
+
+	var btnClass = "btn fw-bold px-2 py-1";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div class="my-3">
+	<a asp-action="Create" class="btn btn-outline-light">Create New</a>
+</div>
+
+<div class="row text-end mb-3">
+	<form asp-action="Index" method="get" class="col">
+		@Html.Label("term", "Search by Description: ", new { @class = "d-inline h5" })
+		<input type="text" name="term" value="@ViewBag.SearchTerm" class="p-1 mx-2" />
+		<a asp-action="Index" class="btn btn-outline-light">Reset Filter</a>
+	</form>
+</div>
+
+<table class="table table-dark table-bordered">
+	<thead>
+		<tr class="text-center">
+			<th class="text-start">
+				@Html.ActionLink(Html.DisplayNameFor(model => model.MedicationDescription),
+				"Index", new { term = ViewBag.SearchTerm, order = @ViewBag.DescriptionSortParam },
+				new { @class = "text-decoration-none" })
+			</th>
+			<th>
+				@Html.ActionLink(Html.DisplayNameFor(model => model.MedicationCost),
+				"Index", new { term = ViewBag.SearchTerm, order = @ViewBag.CostSortParam },
+				new { @class = "text-decoration-none" })
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.PackageSize)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Strength)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Sig)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.UnitsUsedYtd)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.LastPrescribedDate)
+			</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr class="text-center">
+				<td class="text-start">
+					@Html.DisplayFor(modelItem => item.MedicationDescription)
+				</td>
+				<td class="text-end">
+					@Html.DisplayFor(modelItem => item.MedicationCost)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PackageSize)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Strength)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Sig)
+				</td>
+				<td class="text-end">
+					@Html.DisplayFor(modelItem => item.UnitsUsedYtd)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.LastPrescribedDate)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.MedicationId" class="@btnClass">Edit</a>
+					<a asp-action="Details" asp-route-id="@item.MedicationId" class="@btnClass">Details</a>
+					<a asp-action="Delete" asp-route-id="@item.MedicationId" class="@btnClass">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
