@@ -1,0 +1,63 @@
+﻿@model HospitalMVC.Models.Medication
+
+@{
+	ViewData["Title"] = "Delete Medication";
+}
+
+<h1>Delete - @Model.MedicationDescription</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.MedicationDescription)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.MedicationDescription)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.MedicationCost)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.MedicationCost)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PackageSize)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PackageSize)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Strength)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Strength)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Sig)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Sig)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.UnitsUsedYtd)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UnitsUsedYtd)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.LastPrescribedDate)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.LastPrescribedDate)
+		</dd>
+	</dl>
+
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="MedicationId" />
+		<input type="submit" value="Delete" class="btn btn-danger" />
+		<a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+	</form>
+</div>

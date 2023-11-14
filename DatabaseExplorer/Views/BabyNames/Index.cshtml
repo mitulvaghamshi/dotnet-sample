@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DatabaseExplorer.Models.BabyNames.Baby>
+
+@{
+    ViewData["Title"] = "Names";
+}
+
+<h1>Names</h1>
+
+<p class="my-3">
+    <a asp-action="Create" class="btn btn-outline-light">Create New</a>
+</p>
+
+<table class="table table-bordred">
+    <thead>
+        <tr>
+            <th class="col-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="col">
+                @Html.DisplayNameFor(model => model.Meaning)
+            </th>
+            <th class="col-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="col">
+                    @Html.DisplayFor(modelItem => item.Meaning)
+                </td>
+                <td class="col-2">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fw-bold text-decoration-none">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

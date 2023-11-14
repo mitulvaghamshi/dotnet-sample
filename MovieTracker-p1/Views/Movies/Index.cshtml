@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MovieTracker.Models.Movie>
+
+@{
+	ViewData["Title"] = "Movies";
+	var btnClass = "btn rounded-pill p-1 ps-4 pe-4 text-decoration-none";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p class="mt-5 mb-3">
+	<a asp-action="Create" class="btn-outline-primary p-2 @btnClass">Create New</a>
+</p>
+
+<table class="table">
+	<thead>
+		<tr class="list-group-item-dark">
+			<th>
+				@Html.DisplayNameFor(model => model.Title)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DateSeen)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Genre)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Rating)
+			</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr class="list-group-item-primary align-middle">
+				<td class="h6">
+					@Html.DisplayFor(modelItem => item.Title)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateSeen)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Genre)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Rating)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "list-group-item-warning " + btnClass })
+					@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "list-group-item-success " + btnClass  })
+					@Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "list-group-item-danger " + btnClass  })
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

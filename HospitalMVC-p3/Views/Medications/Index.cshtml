@@ -1,0 +1,122 @@
+﻿@using HospitalMVC.Utils;
+
+@model HospitalMVC.Utils.PaginatedList<Medication>
+
+@{
+    ViewData["Title"] = "Medications";
+
+    var actionBtnClass = "btn fw-bold px-2 py-1";
+
+    var prevDisabled = Model.HasPreviousPage ? "" : "disabled";
+    var nextDisabled = Model.HasNextPage ? "" : "disabled";
+
+    var firstIndex = Model.PageIndex - 3 <= 0 ? 1 : Model.PageIndex - 3;
+    var lastIndex = Model.PageIndex + 3 >= Model.PageSize ? Model.PageSize : Model.PageIndex + 3;
+
+    var param = ViewBag.Response as QueryParam ?? new QueryParam();
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div class="my-3">
+    <a asp-action="Create" class="btn btn-outline-light">Create New</a>
+</div>
+
+<div class="row mb-3">
+    <div class="col-6 pagination">
+        @Html.Label("PageSize", "Items per page:", new { @class = "d-inline h4 mx-3 my-auto" })
+        @foreach (var size in new List<int> { 3, 5, 10, 15, 20, 30, 50 })
+        {
+            @Html.ActionLink(size.ToString(), "Index", param.Copy(pageSize: size), new { @class = "page-item page-link " + (param.PageSize == size ? "active" : "") })
+        }
+    </div>
+    <form asp-action="Index" method="get" class="col-6 text-end">
+        @Html.Label("SearchTerm", "Search by Description: ", new { @class = "d-inline h4" })
+        <input type="text" name="SearchTerm" value="@(param.SearchTerm)" class="p-1 mx-2" />
+    </form>
+</div>
+
+<div class="row text-end my-2 mx-1">
+    <ul class="col pagination">
+        <li class="page-item @prevDisabled">
+            @Html.ActionLink("First", "Index", param.Copy(pageIndex: 1), new { @class = "page-link" })
+        </li>
+        <li class="page-item @prevDisabled">
+            @Html.ActionLink("<", "Index", param.Copy(pageIndex: Model.PageIndex - 1), new { @class = "page-link" })
+        </li>
+        @for (var i = firstIndex; i <= lastIndex; i++)
+        {
+            @Html.ActionLink(i.ToString(), "Index", param.Copy(pageIndex: i), new { @class = "page-link " + (Model.PageIndex == i ? "active": "") })
+        }
+        <li class="page-item @nextDisabled">
+            @Html.ActionLink(">", "Index", param.Copy(pageIndex: Model.PageIndex + 1), new { @class = "page-link" })
+        </li>
+        <li class="page-item @nextDisabled">
+            @Html.ActionLink("Last", "Index", param.Copy(pageIndex: Model.PageSize), new { @class = "page-link" })
+        </li>
+    </ul>
+</div>
+
+<table class="table table-dark table-bordered">
+    <thead>
+        <tr class="text-center">
+            <th class="text-start">
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault()!.MedicationDescription),
+                "Index", param.Copy(sortOrder: param.DescSortOrder), new { @class = "text-decoration-none" })
+            </th>
+            <th>
+                @Html.ActionLink(Html.DisplayNameFor(model => model.FirstOrDefault()!.MedicationCost),
+                "Index", param.Copy(sortOrder: param.CostSortOrder), new { @class = "text-decoration-none" })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault()!.PackageSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault()!.Strength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault()!.Sig)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault()!.UnitsUsedYtd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault()!.LastPrescribedDate)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td class="text-start">
+                    @Html.DisplayFor(modelItem => item.MedicationDescription)
+                </td>
+                <td class="text-end">
+                    @Html.DisplayFor(modelItem => item.MedicationCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PackageSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Strength)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sig)
+                </td>
+                <td class="text-end">
+                    @Html.DisplayFor(modelItem => item.UnitsUsedYtd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastPrescribedDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MedicationId" class="@actionBtnClass">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.MedicationId" class="@actionBtnClass">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.MedicationId" class="@actionBtnClass">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

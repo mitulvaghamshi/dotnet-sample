@@ -1,0 +1,66 @@
+﻿@model HospitalMVC.Models.Admission
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3>Details - @Model.Patient.LastName @Model.Patient.FirstName</h3>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DischargeDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DischargeDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PrimaryDiagnosis)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PrimaryDiagnosis)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SecondaryDiagnoses)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SecondaryDiagnoses)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Room)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Room)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AttendingPhysician)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AttendingPhysician!.PhysicianId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NursingUnit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NursingUnit!.NursingUnitId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patient)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patient.PatientId)
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-3">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId, admissionDate = Model.AdmissionDate }, new { @class = "btn btn-success" })
+    <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+</div>
