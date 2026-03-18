@@ -21,12 +21,12 @@ public class IndexModel : PageModel
     [BindProperty(SupportsGet = true)]
     public string? MovieGenre { get; set; }
 
-    public SelectList Genres { get; set; }
+    public SelectList Genres { get; set; } = default!;
 
     public async Task OnGetAsync()
     {
         if (_context.Movie == null) return;
-        
+
         SearchTerm ??= Request.RouteValues[nameof(SearchTerm)]?.ToString();
         MovieGenre ??= Request.RouteValues[nameof(MovieGenre)]?.ToString();
 

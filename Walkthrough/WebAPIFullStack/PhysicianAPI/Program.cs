@@ -1,5 +1,5 @@
-using Microsoft.OpenApi.Models;
 using PhysicianAPI.Data;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +9,13 @@ builder.Services.AddDbContext<CHDBContext>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(g => g.SwaggerDoc("v1", new OpenApiInfo { Title = "Physician API", Version = "v1" }));
+builder.Services.AddSwaggerGen(g =>
+{
+    g.SwaggerDoc("v1", new OpenApiInfo {
+        Title = "Physician API",
+        Version = "v1"
+    });
+});
 
 var app = builder.Build();
 

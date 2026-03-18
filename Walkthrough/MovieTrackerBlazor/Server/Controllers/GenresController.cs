@@ -17,7 +17,10 @@ public class GenresController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Genre>>> GetGenre()
     {
-        if (_context.Genre == null) return NotFound();
+        if (_context.Genre == null)
+        {
+            return NotFound();
+        }
 
         return await _context.Genre.AsNoTracking().ToListAsync();
     }

@@ -3,9 +3,13 @@ using MovieTracker.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<MovieTrackerContext>(options => options.UseSqlServer(
-	builder.Configuration.GetConnectionString("MovieTrackerContext")
-		?? throw new InvalidOperationException("Connection string not found.")));
+builder.Services.AddDbContext<MovieTrackerContext>(options =>
+{
+	options.UseSqlServer( // UseInMemoryDatabase(
+		builder.Configuration.GetConnectionString("MovieTrackerContext")
+		?? throw new InvalidOperationException("Connection string not found.")
+	);
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

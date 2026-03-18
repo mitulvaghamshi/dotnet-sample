@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:MovieTrackerContext"
+      "connectionId": "ConnectionStrings:MovieTrackerContext",
+      "type": "mssql.local"
     }
   }
 }

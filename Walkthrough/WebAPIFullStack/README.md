@@ -147,12 +147,9 @@ public async Task<ActionResult<Physician>> PostPhysician(Physician physician)
 - Delete the empty `Doc` class definition.
 
 ```cs
-namespace Doctors.Models
-{
-    // public class Doc
-    // {
-    // }
-}
+namespace Doctors.Models;
+
+// public class Doc {}
 ```
 
 - Place the cursor between the curly braces.
@@ -257,7 +254,10 @@ public class DocsController : Controller
 
     // GET: Docs
     public ActionResult Index()
+
     // ...
+
+}
 ```
 
 ## Index

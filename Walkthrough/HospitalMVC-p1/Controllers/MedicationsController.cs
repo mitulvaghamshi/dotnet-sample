@@ -25,7 +25,7 @@ public class MedicationsController : Controller
 		ViewBag.DescriptionSortParam = order == SortOrder.None ? SortOrder.DescriptionDescending : SortOrder.None;
 		ViewBag.CostSortParam = order == SortOrder.Cost ? SortOrder.CostDescending : SortOrder.Cost;
 
-		var medications = from m in _context.Medications select m;		
+		var medications = from m in _context.Medications select m;
         if (!string.IsNullOrEmpty(term))
         {
 			medications = medications.Where(m => m.MedicationDescription.Contains(term));

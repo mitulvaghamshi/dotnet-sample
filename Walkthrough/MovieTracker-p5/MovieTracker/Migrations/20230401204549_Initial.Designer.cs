@@ -9,71 +9,70 @@ using MovieTracker.Data;
 
 #nullable disable
 
-namespace MovieTracker.Migrations
+namespace MovieTracker.Migrations;
+
+[DbContext(typeof(MovieTrackerContext))]
+[Migration("20230401204549_Initial")]
+partial class Initial
 {
-    [DbContext(typeof(MovieTrackerContext))]
-    [Migration("20230401204549_Initial")]
-    partial class Initial
+    /// <inheritdoc />
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "7.0.4")
+            .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+        SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MovieTracker.Models.Movie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("MovieTracker.Models.Movie", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("DateSeen")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime?>("DateSeen")
+                    .HasColumnType("datetime2");
 
-                    b.Property<string>("Genre")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Genre")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Rating")
-                        .HasColumnType("int");
+                b.Property<int?>("Rating")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Title")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Movie");
+                b.ToTable("Movie");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateSeen = new DateTime(2023, 2, 10, 16, 45, 49, 576, DateTimeKind.Local).AddTicks(3653),
-                            Genre = "Action",
-                            Rating = 6,
-                            Title = "Birds of Prey"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateSeen = new DateTime(2023, 3, 7, 16, 45, 49, 576, DateTimeKind.Local).AddTicks(3685),
-                            Rating = 7,
-                            Title = "Palm Springs"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Genre = "Drama",
-                            Title = "Hamilton"
-                        });
-                });
+                b.HasData(
+                    new
+                    {
+                        Id = 1,
+                        DateSeen = new DateTime(2023, 2, 10, 16, 45, 49, 576, DateTimeKind.Local).AddTicks(3653),
+                        Genre = "Action",
+                        Rating = 6,
+                        Title = "Birds of Prey"
+                    },
+                    new
+                    {
+                        Id = 2,
+                        DateSeen = new DateTime(2023, 3, 7, 16, 45, 49, 576, DateTimeKind.Local).AddTicks(3685),
+                        Rating = 7,
+                        Title = "Palm Springs"
+                    },
+                    new
+                    {
+                        Id = 3,
+                        Genre = "Drama",
+                        Title = "Hamilton"
+                    });
+            });
 #pragma warning restore 612, 618
-        }
     }
 }

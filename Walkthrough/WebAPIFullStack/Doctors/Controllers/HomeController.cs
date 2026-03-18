@@ -199,7 +199,9 @@ public class HomeController : Controller
 
     private static async Task<T> HttpRequest<T>(Builder<T> builder)
     {
-        var client = new HttpClient { BaseAddress = new UriBuilder(Uri.UriSchemeHttp, "localhost", 5002).Uri };
+        var client = new HttpClient {
+            BaseAddress = new UriBuilder(Uri.UriSchemeHttp, "localhost", 3002).Uri
+        };
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(mediaType);
 

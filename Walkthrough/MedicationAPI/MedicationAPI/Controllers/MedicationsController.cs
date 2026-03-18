@@ -94,6 +94,6 @@ public class MedicationsController : ControllerBase
         return NoContent();
     }
 
-    private bool MedicationExists(int id) => 
+    private bool MedicationExists(int id) =>
         (_context.Medications?.AsNoTracking().Any(e => e.MedicationId == id)).GetValueOrDefault();
 }

@@ -1,20 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace IntroMVC.Controllers
+namespace IntroMVC.Controllers;
+
+public class AboutController : Controller
 {
-	public class AboutController : Controller
+	public IActionResult Index()
 	{
-		public IActionResult Index()
-		{
-			return View();
-		}
+		return View();
+	}
 
-		[Route("info/{id:int?}")]
-		public IActionResult Post(int? id)
-		{
-			ViewBag.id = id;
+	[Route("info/{id:int?}")]
+	public IActionResult Post(int? id)
+	{
+		ViewBag.id = id;
 
-			return View();
-		}
+		return View();
 	}
 }

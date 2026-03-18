@@ -24,27 +24,23 @@ This walkthrough will create an MVC application that will consume a **RESTful** 
 - Delete the empty `Post` class definition.
 
 ```cs
-namespace Blog.Models
-{
-    // public class Post
-    // {
-    // }
-}
+namespace Blog.Models;
+
+// public class Post {}
 ```
 
 - Place the cursor before the closing brace of the namespace.
 - From the `Edit` menu, select `Paste Special / Paste JSON As Classes`.
 
 ```cs
-namespace Blog.Models
+namespace Blog.Models;
+
+public class Rootobject
 {
-    public class Rootobject
-    {
-        public int userId { get; set; }
-        public int id { get; set; }
-        public string title { get; set; }
-        public string body { get; set; }
-    }
+    public int userId { get; set; }
+    public int id { get; set; }
+    public string title { get; set; }
+    public string body { get; set; }
 }
 ```
 

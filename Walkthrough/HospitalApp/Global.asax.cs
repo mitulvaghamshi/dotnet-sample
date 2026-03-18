@@ -7,15 +7,14 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace HospitalApp
+namespace HospitalApp;
+
+public class Global : HttpApplication
 {
-	public class Global : HttpApplication
+	void Application_Start(object sender, EventArgs e)
 	{
-		void Application_Start(object sender, EventArgs e)
-		{
-			// Code that runs on application startup
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
-			BundleConfig.RegisterBundles(BundleTable.Bundles);
-		}
+		// Code that runs on application startup
+		RouteConfig.RegisterRoutes(RouteTable.Routes);
+		BundleConfig.RegisterBundles(BundleTable.Bundles);
 	}
 }

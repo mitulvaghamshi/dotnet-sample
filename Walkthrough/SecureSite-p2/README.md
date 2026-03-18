@@ -51,18 +51,22 @@ public class ApplicationUser : IdentityUser
 - Replace `IdentityUser` with `ApplicationUser` and add the `using SecureSite.Models;` namespace.
 
 ```cs
-namespace SecureSite.Areas.Identity.Pages.Account
-{
-    [AllowAnonymous]
-    public class LoginModel : PageModel
-    {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ILogger<LoginModel> _logger;
+namespace SecureSite.Areas.Identity.Pages.Account;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
-        {
+[AllowAnonymous]
+public class LoginModel : PageModel
+{
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly ILogger<LoginModel> _logger;
+
+    public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
+    {
         // ...
+    }
+
+    // ...
+}
 ```
 
 - Save the file.
@@ -73,31 +77,44 @@ namespace SecureSite.Areas.Identity.Pages.Account
 - Replace `IdentityUser` with `ApplicationUser` and add the `using SecureSite.Models;` namespace.
 
 ```cs
-namespace SecureSite.Areas.Identity.Pages.Account
-{
-    [AllowAnonymous]
-    public class RegisterModel : PageModel
-    {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
+namespace SecureSite.Areas.Identity.Pages.Account;
 
-        public RegisterModel(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+[AllowAnonymous]
+public class RegisterModel : PageModel
+{
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly ILogger<RegisterModel> _logger;
+    private readonly IEmailSender _emailSender;
+
+    public RegisterModel(
+        UserManager<ApplicationUser> userManager,
+        SignInManager<ApplicationUser> signInManager,
+        // ...
+    )
+    {
+        // ...
+    }
+
+    // ...
+
+    public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+    {
         // ...
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        if (ModelState.IsValid)
         {
-            // ...
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser {
-                    UserName = Input.Email,
-                    Email = Input.Email
-                };
-            // ...
+            var user = new ApplicationUser {
+                UserName = Input.Email,
+                Email = Input.Email
+            };
+        }
+
+        // ...
+    }
+
+    // ...
+}
 ```
 
 - Save the file.
@@ -145,6 +162,7 @@ public void ConfigureServices(IServiceCollection services)
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     // ...
+}
 ```
 
 - Build the project (`Ctrl+B`) to ensure no errors.
@@ -209,7 +227,11 @@ public async Task<IActionResult> OnPostAsync(string returnUrl = null)
             Email = Input.Email,
         };
 
+        // ...
+    }
+
     // ...
+}
 ```
 
 - Save the file.

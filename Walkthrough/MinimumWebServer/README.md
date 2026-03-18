@@ -152,16 +152,15 @@ class App
 ```cs
 using Microsoft.AspNetCore.Hosting;
 
-namespace MinimumWebServer
+namespace MinimumWebServer;
+
+class App
 {
-    class App
+    static void Main()
     {
-        static void Main()
-        {
-            // Compilation error...
-            new WebHostBuilder()
-        }
-   }
+        // Compilation error...
+        new WebHostBuilder()
+    }
 }
 ```
 
@@ -171,17 +170,16 @@ namespace MinimumWebServer
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace MinimumWebServer
+namespace MinimumWebServer;
+
+class App
 {
-    class App
+    static void Main()
     {
-        static void Main()
-        {
-            new WebHostBuilder()
-                .UseKestrel()
-                // Compilation error...
-                .Configure(app => app.Run(context => context.Response))
-        }
+        new WebHostBuilder()
+            .UseKestrel()
+            // Compilation error...
+            .Configure(app => app.Run(context => context.Response));
     }
 }
 ```
@@ -193,17 +191,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace MinimumWebServer
+namespace MinimumWebServer;
+
+class App
 {
-    class App
+    static void Main()
     {
-        static void Main()
-        {
-            new WebHostBuilder()
-                .UseKestrel()
-                // Compilation error...
-                .Configure(app => app.Run(context => context.Response.WriteAsync()))
-        }
+        new WebHostBuilder()
+            .UseKestrel()
+            // Compilation error...
+            .Configure(app => app.Run(context => context.Response.WriteAsync()));
     }
 }
 ```
@@ -216,20 +213,23 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
 
-namespace MinimumWebServer
+namespace MinimumWebServer;
+
+class App
 {
-    class App
+    static void Main()
     {
-        static void Main()
-        {
-            new WebHostBuilder()
-                .UseKestrel()
-                .Configure(app => app.Run(context => context
-                    .Response
-                    .WriteAsync("<h1>Minimum Web Server</h1>")))
-                .Build()
-                .Run();
-        }
+        new WebHostBuilder()
+            .UseKestrel()
+            .Configure(app =>
+            {
+                app.Run(context =>
+                {
+                    context.Response.WriteAsync("<h1>Minimum Web Server</h1>");
+                })
+            })
+            .Build()
+            .Run();
     }
 }
 ```
