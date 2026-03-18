@@ -1,14 +1,38 @@
-# Advanced web development with .NET
+# Advanced Web Development: (C# | .NET | SQL)
 
-Walkthroughs (VS2019 .NET v5.0) | Examples (VS2022 .NET v6.0/v7.0)
+## C# Language Basics
 
-## Readme
+| No | Topic                                                                                   |
+| -- | --------------------------------------------------------------------------------------- |
+| 1  | [CS - Overview.md](Readme/CS%20-%201%20-%20Overview.md)                                 |
+| 2  | [CS - Language Basics.md](Readme/CS%20-%202%20-%20Language%20Basics.md)                 |
+| 3  | [CS - Delegates & Events.md](Readme/CS%20-%203%20-%20Delegates%20&%20Events.md)         |
+| 4  | [CS - Exception Handling.md](Readme/CS%20-%204%20-%20Exception%20Handling.md)           |
+| 5  | [CS - Collections & Generics.md](Readme/CS%20-%205%20-%20Collections%20&%20Generics.md) |
+| 6  | [CS - LINQ.md](Readme/CS%20-%206%20-%20LINQ.md)                                         |
+| 7  | [CS - Searching & Sorting.md](Readme/CS%20-%207%20-%20Searching%20&%20Sorting.md)       |
+| 8  | [CS - Normalization.md](Readme/CS%20-%208%20-%20Normalization.md)                       |
 
-- [Intro to C#](Readme/C-Sharp.md)
-- [Intro to SQL](Readme/SQL.md)
-- [Intro to ASP.NET](Readme/ASP.NET.md)
+## SQL Language Basics
 
-## Walkthrough
+| No | Topic                                                           | Example                                                    |
+| -- | --------------------------------------------------------------- | ---------------------------------------------------------- |
+| 1  | [SQL - Join.md](Readme/SQL%20-%201%20-%20Join.md)               | [join.sql](Assets/SQLExample/join.sql)                     |
+| 2  | [SQL - Procedure.md](Readme/SQL%20-%202%20-%20Procedure.md)     | [procedure.sql](Assets/SQLExample/procedure.sql)           |
+| 3  | [SQL - Trigger.md](Readme/SQL%20-%203%20-%20Trigger.md)         | [trigger.sql](Assets/SQLExample/trigger.sql)               |
+| 4  | [SQL - Concurrency.md](Readme/SQL%20-%204%20-%20Concurrency.md) |                                                            |
+| 5  | Selecting Table Metadata                                        | [table-metadata.sql](Assets/SQLExample/table-metadata.sql) |
+| 6  | Advanced Example - Calculate Net Salary                         | [net-salary.sql](Assets/SQLExample/net-salary.sql)         |
+
+## ASP.NET Framework Basic
+
+| No | ASP.NET Basics & Overview                                 |
+| -- | --------------------------------------------------------- |
+| 1  | [ASP.NET - Overview.md](Readme/ASP.NET%20-%20Overview.md) |
+
+## ASP.NET Walkthrough
+
+Walkthroughs (VS2019 .NET v6.0) | Examples (VS2026 .NET v10.0)
 
 | No | .Net Framework                                                       |
 | -- | -------------------------------------------------------------------- |
@@ -62,11 +86,3 @@ Walkthroughs (VS2019 .NET v5.0) | Examples (VS2022 .NET v6.0/v7.0)
 | 21 | [Blazor WebAssembly Server - BlazorWasmServer (part 2)](Walkthrough/BlazorWasmServer/README.md)  |
 | 22 | [Blazor WebAssembly PWA - BlazorWasmPWA (part 3)](Walkthrough/BlazorWasmPWA/README.md)           |
 | 23 | [Blazor WebAssembly with EF Core - MovieTrackerBlazor](Walkthrough/MovieTrackerBlazor/README.md) |
-
-## You may need this
-
-| No | File                                      |
-| -- | ----------------------------------------- |
-| 1  | [CHDB.sql.zip](Assets/CHDB.sql.zip)       |
-| 2  | [wwwroot-css.zip](Assets/wwwroot-css.zip) |
-| 3  | [wwwroot-lib.zip](Assets/wwwroot-lib.zip) |

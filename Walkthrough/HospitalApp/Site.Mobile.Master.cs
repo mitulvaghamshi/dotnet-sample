@@ -5,13 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HospitalApp
-{
-    public partial class Site_Mobile : System.Web.UI.MasterPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace HospitalApp;
 
-        }
-    }
+public partial class Site_Mobile : System.Web.UI.MasterPage
+{
+    protected void Page_Load(object sender, EventArgs e) {}
 }

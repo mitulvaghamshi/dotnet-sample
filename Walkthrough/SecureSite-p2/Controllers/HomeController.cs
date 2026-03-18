@@ -9,7 +9,6 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-
     public HomeController(ILogger<HomeController> logger) => _logger = logger;
 
     public IActionResult Index()
@@ -18,7 +17,7 @@ public class HomeController : Controller
     }
 
     // [Authorize(Roles = "Admin, Manager")] // Either Admin or Manager can access
-    [Authorize(Roles = "Admin")]   // Require user to be both, 
+    [Authorize(Roles = "Admin")]   // Require user to be both,
     [Authorize(Roles = "Manager")] // Admin and Manager to access
     public IActionResult Privacy() => View();
 

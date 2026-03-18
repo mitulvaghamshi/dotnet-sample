@@ -9,7 +9,7 @@ namespace BlogPost.Controllers;
 public class HomeController : Controller
 {
     private readonly static string endpoint = "https://jsonplaceholder.typicode.com";
- 
+
     private readonly static MediaTypeWithQualityHeaderValue jsonHeader = new("application/json");
 
     private readonly ILogger<HomeController> _logger;
