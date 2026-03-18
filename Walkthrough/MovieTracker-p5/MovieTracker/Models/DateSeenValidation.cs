@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieTracker.Models
+namespace MovieTracker.Models;
+
+public class DateSeenValidation : ValidationAttribute
 {
-	public class DateSeenValidation : ValidationAttribute
-	{
-		public override bool IsValid(object? value) => Convert.ToDateTime(value) <= DateTime.Now;
-	}
+	public override bool IsValid(object? value) => Convert.ToDateTime(value) <= DateTime.Now;
 }

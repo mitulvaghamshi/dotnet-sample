@@ -7,8 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<CHDBContext>(options =>
-	options.UseSqlServer(builder.Configuration.GetConnectionString("CHDB")
-	?? throw new InvalidOperationException("Connection string not found.")));
+{
+	options.UseSqlServer(
+		builder.Configuration.GetConnectionString("CHDB")
+		?? throw new InvalidOperationException("Connection string not found.")
+	);
+});
 
 var app = builder.Build();
 

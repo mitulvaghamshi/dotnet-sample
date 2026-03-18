@@ -54,7 +54,11 @@ else
 
     private async Task GetForecasts()
     {
-        if (Limit <= 0) Limit = 5;
+        if (Limit <= 0)
+        {
+            Limit = 5;
+        }
+
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>($"WeatherForecast/?limit={Limit}");
     }
 }

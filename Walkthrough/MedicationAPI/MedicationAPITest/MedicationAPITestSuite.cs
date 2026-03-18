@@ -68,10 +68,10 @@ public class MedicationAPITestSuite
     }
 
     /// <summary>
-    /// System.InvalidOperationException : 
-    ///     The instance of entity type 'Medication' cannot be tracked because another instance 
-    ///     with the same key value for {'MedicationId'} is already being tracked. 
-    ///     When attaching existing entities, ensure that only one entity instance with a given key value is attached. 
+    /// System.InvalidOperationException :
+    ///     The instance of entity type 'Medication' cannot be tracked because another instance
+    ///     with the same key value for {'MedicationId'} is already being tracked.
+    ///     When attaching existing entities, ensure that only one entity instance with a given key value is attached.
     ///     Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
     /// </summary>
     /// <returns></returns>
@@ -102,10 +102,10 @@ public class MedicationAPITestSuite
     }
 
     /// <summary>
-    /// System.InvalidOperationException : 
-    ///     The instance of entity type 'Medication' cannot be tracked because another instance 
-    ///     with the same key value for {'MedicationId'} is already being tracked. 
-    ///     When attaching existing entities, ensure that only one entity instance with a given key value is attached. 
+    /// System.InvalidOperationException :
+    ///     The instance of entity type 'Medication' cannot be tracked because another instance
+    ///     with the same key value for {'MedicationId'} is already being tracked.
+    ///     When attaching existing entities, ensure that only one entity instance with a given key value is attached.
     ///     Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
     /// </summary>
     /// <returns></returns>
@@ -152,7 +152,7 @@ public class MedicationAPITestSuite
 
     private static async Task<CHDBContext> GetContext(string name)
     {
-        var options = new DbContextOptionsBuilder<CHDBContext>().UseInMemoryDatabase(databaseName: name).Options;
+        var options = new DbContextOptionsBuilder<CHDBContext>().UseInMemoryDatabase(databaseName: name).Options;;
 
         var _context = new CHDBContext(options);
 

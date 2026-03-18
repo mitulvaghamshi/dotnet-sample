@@ -7,11 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HospitalApp
-{
+namespace HospitalApp;
 
-
-	public partial class About
-	{
-	}
-}
+public partial class About {}

@@ -86,5 +86,6 @@ public class MoviesController : ControllerBase
         return NoContent();
     }
 
-    private bool MovieExists(int id) => (_context.Movie?.AsNoTracking().Any(e => e.Id == id)).GetValueOrDefault();
+    private bool MovieExists(int id) =>
+        (_context.Movie?.AsNoTracking().Any(e => e.Id == id)).GetValueOrDefault();
 }

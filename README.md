@@ -1,12 +1,12 @@
 # Advanced web development with .NET
 
-Walkthroughs (VS2019 .NET v5.0) | Examples (VS2022 .NET v6.0/v7.0)
+Walkthroughs (VS2019 .NET v6.0) | Examples (VS2026 .NET v10.0)
 
 ## Readme
 
-- [Intro to C#](Readme/C-Sharp.md)
-- [Intro to SQL](Readme/SQL.md)
-- [Intro to ASP.NET](Readme/ASP.NET.md)
+- [Intro-to-C#](Readme/C-Sharp.md)
+- [Intro-to-SQL](Readme/SQL.md)
+- [Intro-to-ASP.NET](Readme/ASP.NET.md)
 
 ## Walkthrough
 
@@ -63,10 +63,12 @@ Walkthroughs (VS2019 .NET v5.0) | Examples (VS2022 .NET v6.0/v7.0)
 | 22 | [Blazor WebAssembly PWA - BlazorWasmPWA (part 3)](Walkthrough/BlazorWasmPWA/README.md)           |
 | 23 | [Blazor WebAssembly with EF Core - MovieTrackerBlazor](Walkthrough/MovieTrackerBlazor/README.md) |
 
-## You may need this
+## Other files
 
-| No | File                                      |
-| -- | ----------------------------------------- |
-| 1  | [CHDB.sql.zip](Assets/CHDB.sql.zip)       |
-| 2  | [wwwroot-css.zip](Assets/wwwroot-css.zip) |
-| 3  | [wwwroot-lib.zip](Assets/wwwroot-lib.zip) |
+| No | File                                        |
+| -- | ------------------------------------------- |
+| 1  | [CHDB.sql.zip](Assets/CHDB.sql.zip)         |
+| 2  | [wwwroot/css.zip](Assets/wwwroot-css.zip)   |
+| 3  | [wwwroot/lib.zip](Assets/wwwroot-lib.zip)   |
+| 4  | [DatabaseExplorer](Others/DatabaseExplorer) |
+| 5  | [TendonLoaderApi](Others/TendonLoaderApi)   |

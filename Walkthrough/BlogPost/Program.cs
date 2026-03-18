@@ -10,14 +10,13 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{Id?}");
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{Id?}");
 
 app.Run();
